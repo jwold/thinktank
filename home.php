@@ -8,25 +8,30 @@
 				}
 				?>
 				
-				<h2>The Latest</h2>	
-				<!--<?php query_posts('cat=3'); ?>
-				<?php
-				for ($i = 0; $i < $wp_query->post_count; $i++) {
-					the_title();
-					//theme_get_next_post();
-					the_excerpt();
-				}
-				?>-->
+				<div class="home-posts">
 				
-				<h2>Meanwhile</h2>
-				<!--<?php query_posts('cat=4'); ?>
-				<?php
-				for ($i = 0; $i < $wp_query->post_count; $i++) {
-					the_title();
-					//theme_get_next_post();
-					the_excerpt();
-				}
-				?>-->
+					<div class="post-section">
+						<h2 class="cat-title">The Latest</h2>	
+						<?php query_posts('cat=3'); ?>
+						<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+						<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+						<?php the_meta(); ?>
+						<?php the_excerpt(); ?>
+						<span class="read-more"><a href="<?php the_permalink(); ?>">Read More</a></span>
+						<?php endwhile; endif; ?>
+					</div>
+								
+					<div class="post-section">		
+						<h2 class="cat-title">Meanwhile</h2>
+						<?php query_posts('cat=4'); ?>
+						<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+						<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+						<?php the_excerpt(); ?> 
+						<span class="read-more"><a href="<?php the_permalink(); ?>">Read More</a></span>
+						<?php endwhile; endif; ?>
+					</div>
+				
+				</div>
 				
 				<?php
 				/* Display navigation to next/previous pages when applicable */
