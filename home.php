@@ -8,26 +8,25 @@
 				}
 				?>
 				
-				<!--<?php
-				query_posts('cat=3');
-				while (have_posts()) : the_post();
-				the_title( '<h1>', '</h1>' );
-				the_excerpt();
-				endwhile;
-				?>-->
-				
-				<?php query_posts('cat=3'); ?>
-				<!--<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				<?php the_title(); ?>
-				<?php the_excerpt(); ?>
-				<?php endwhile; endif; ?>-->
-				
+				<h2>The Latest</h2>	
+				<!--<?php query_posts('cat=3'); ?>
 				<?php
 				for ($i = 0; $i < $wp_query->post_count; $i++) {
-					theme_get_next_post();
+					the_title();
+					//theme_get_next_post();
 					the_excerpt();
 				}
-				?>
+				?>-->
+				
+				<h2>Meanwhile</h2>
+				<!--<?php query_posts('cat=4'); ?>
+				<?php
+				for ($i = 0; $i < $wp_query->post_count; $i++) {
+					the_title();
+					//theme_get_next_post();
+					the_excerpt();
+				}
+				?>-->
 				
 				<?php
 				/* Display navigation to next/previous pages when applicable */
